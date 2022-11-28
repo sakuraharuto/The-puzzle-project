@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public float moveSpeed = 10f;
 
+    public float pushForce = 5f;
+
     Vector3 velocity;
     public float gravity = -9.8f;
 
@@ -55,6 +57,15 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             walkSound.Stop();
+        }
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit) {
+        Rigidbody rb = hit.collider.attachedRigidbody;
+
+        if (rb != null && !rb.isKinematic)
+        {
+            rb.velocity = hit.moveDirection * pushForce;
         }
     }
 }

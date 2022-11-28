@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4423023161530752716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.29999995, z: -0.099975586}
+  m_LocalPosition: {x: -0.000000014901161, y: 1.1999998, z: -0.0999756}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -59,7 +59,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -156,7 +156,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4423023161943121871}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2, y: 1.8000001, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -264,9 +264,9 @@ CharacterController:
   m_Height: 3.5
   m_Radius: 0.8
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_StepOffset: 1
+  m_SkinWidth: 0.1
+  m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4423023161988162318
 MonoBehaviour:
@@ -282,6 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 4423023161988162316}
   moveSpeed: 10
+  pushForce: 5
   gravity: -1
   groundCheck: {fileID: 4423023161553940451}
   groundDist: 0.4
