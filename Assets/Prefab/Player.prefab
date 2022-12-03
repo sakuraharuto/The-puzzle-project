@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 4423023161988162316}
   - component: {fileID: 4423023161988162318}
   - component: {fileID: 4423023161988162313}
+  - component: {fileID: 1320216001}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -282,7 +283,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 4423023161988162316}
   moveSpeed: 10
-  pushForce: 5
   gravity: -1
   groundCheck: {fileID: 4423023161553940451}
   groundDist: 0.4
@@ -386,3 +386,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1320216001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4423023161988162317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b50d30230f3e48329e2abe600171c44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushForceMagnitude: 5

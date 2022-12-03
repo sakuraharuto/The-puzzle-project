@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public float moveSpeed = 10f;
 
-    public float pushForce = 5f;
+    //public float pushForce = 5f;
 
     Vector3 velocity;
     public float gravity = -9.8f;
@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    /*
     private void OnControllerColliderHit(ControllerColliderHit hit) {
         Rigidbody rb = hit.collider.attachedRigidbody;
 
@@ -68,4 +69,5 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = hit.moveDirection * pushForce;
         }
     }
+    */
 }
