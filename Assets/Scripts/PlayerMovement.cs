@@ -59,15 +59,4 @@ public class PlayerMovement : MonoBehaviour
             walkSound.Stop();
         }
     }
-
-    /*
-    private void OnControllerColliderHit(ControllerColliderHit hit) {
-        Rigidbody rb = hit.collider.attachedRigidbody;
-
-        if (rb != null && !rb.isKinematic)
-        {
-            rb.velocity = hit.moveDirection * pushForce;
-        }
-    }
-    */
 }
