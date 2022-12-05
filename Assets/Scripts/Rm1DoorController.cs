@@ -7,6 +7,7 @@ public class Rm1DoorController : MonoBehaviour
     [SerializeField] PressurePadController pressurePad1;
     [SerializeField] PressurePadController pressurePad2;
     [SerializeField] PressurePadController pressurePad3;
+    [SerializeField] Animator door;
 
 
     // Update is called once per frame
@@ -29,6 +30,7 @@ public class Rm1DoorController : MonoBehaviour
         if (isPad1On && isPad2On && isPad3On)
         {
             Debug.Log("The Door is opened!");
+            door.Play("DoorOpenAnim");
         }
     }
 }
