@@ -12,6 +12,7 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] bool isLetterOpen;
     [SerializeField] GameObject letter;
     [SerializeField] TextMeshProUGUI letterPromt;
+    [SerializeField] TextMeshProUGUI putOnGlassText;
 
     private void Update()
     {
@@ -42,6 +43,11 @@ public class PlayerStatus : MonoBehaviour
         hasLetter = newStatus;
     }
 
+    public void SetGlassStatus(bool newStatus)
+    {
+        hasGlass = newStatus;
+    }
+
     public void ShowLetterTheFirstTime()
     {
         letter.SetActive(true);
@@ -69,5 +75,20 @@ public class PlayerStatus : MonoBehaviour
                 isLetterOpen = false;
             }
         }
+    }
+
+    public void ShowWearGlassesMessage()
+    {
+        StartCoroutine(ShowTimedMessage(1.5f));
+    }
+
+    IEnumerator ShowTimedMessage(float delay)
+    {
+        putOnGlassText.enabled = true;
+        putOnGlassText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(delay);
+
+        putOnGlassText.enabled = false;
+        putOnGlassText.gameObject.SetActive(false);
     }
 }
