@@ -13,10 +13,13 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] GameObject letter;
     [SerializeField] TextMeshProUGUI letterPromt;
     [SerializeField] TextMeshProUGUI putOnGlassText;
+    [SerializeField] GameObject leftSide;
+    [SerializeField] GameObject rightSide;
 
     private void Update()
     {
         ShowandCloseLetter();
+        CanViewTheSecret();
     }
 
     public bool GetGlassStatus()
@@ -74,6 +77,16 @@ public class PlayerStatus : MonoBehaviour
                 letterPromt.gameObject.SetActive(false);
                 isLetterOpen = false;
             }
+        }
+    }
+
+    void CanViewTheSecret()
+    {
+        if (hasGlass)
+        {
+            knowTheKey = true;
+            leftSide.SetActive(true);
+            rightSide.SetActive(true);
         }
     }
 
