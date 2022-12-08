@@ -17,11 +17,11 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     bool isGrounded;
 
-    public AudioSource walkSound;
+    //public AudioSource walkSound;
 
     void Start()
     {
-        walkSound = GetComponent<AudioSource>();
+        //walkSound = GetComponent<AudioSource>();
     }
 
 
@@ -46,17 +46,6 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
-        // walk sound
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-        {
-            if (!walkSound.isPlaying)
-            {
-                walkSound.Play();
-            }
-        }
-        else
-        {
-            walkSound.Stop();
-        }
+        
     }
 }
