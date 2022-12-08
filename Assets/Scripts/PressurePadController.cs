@@ -10,8 +10,10 @@ public class PressurePadController : MonoBehaviour
     [SerializeField] bool isPadOn;
 
     AudioSource pressDown;
-    
+
     [SerializeField] AudioClip pressDownSound;
+
+    private bool hasPlayedTheSound;
 
     void Awake()
     {
@@ -29,6 +31,11 @@ public class PressurePadController : MonoBehaviour
             {
                 cube.GetComponent<Rigidbody>().isKinematic = true;
                 isPadOn = true;
+                if (!hasPlayedTheSound)
+                {
+                    PlaySFX();
+                    hasPlayedTheSound = true;
+                }
             }
         }
     }
