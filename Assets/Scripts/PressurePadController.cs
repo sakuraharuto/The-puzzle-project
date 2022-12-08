@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PressurePadController : MonoBehaviour
-{   
-   
+{
+
     [SerializeField] float lockDist;
 
     [SerializeField] bool isPadOn;
-   
+
+    AudioSource pressDown;
+    
+    [SerializeField] AudioClip pressDownSound;
+
+    void Awake()
+    {
+        pressDown = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -23,6 +31,11 @@ public class PressurePadController : MonoBehaviour
                 isPadOn = true;
             }
         }
+    }
+    void PlaySFX()
+    {
+        Debug.Log("Sound played");
+        pressDown.PlayOneShot(pressDownSound);
     }
     public bool GetPressurePadStatus()
     {

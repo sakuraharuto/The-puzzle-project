@@ -9,6 +9,8 @@ public class Rm1DoorController : MonoBehaviour
     [SerializeField] PressurePadController pressurePad3;
     [SerializeField] Animator door;
     AudioSource doorOpenSound;
+    [SerializeField] AudioClip doorOpenSoundClip;
+    private bool hasPlayedTheSound;
 
     void Start()
     {
@@ -36,7 +38,11 @@ public class Rm1DoorController : MonoBehaviour
         {
             Debug.Log("The Door is opened!");
             door.Play("DoorOpenAnim");
-            doorOpenSound.Play();
+            if (!hasPlayedTheSound)
+            {
+                doorOpenSound.PlayOneShot(doorOpenSoundClip);
+                hasPlayedTheSound = true;
+            }
         }
     }
 
