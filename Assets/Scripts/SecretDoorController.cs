@@ -9,13 +9,20 @@ public class SecretDoorController : MonoBehaviour
     [SerializeField] Animator secretDoor;
     [SerializeField] bool isSecretDoorOpen;
     [SerializeField] TextMeshProUGUI keyHint;
+    AudioSource secretOpeningSound;
+    [SerializeField] AudioClip secretOpeningSoundCilp;
+    private bool hasPlayedTheSound;
 
+    private void Awake()
+    {
+        secretOpeningSound = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerStay(Collider other)
     {
         bool isPlayerKnowTheKey = status.GetTheKeyStatus();
 
-        if (other.tag == "Player" && isPlayerKnowTheKey)
+        if (other.tag == "Player" && isPlayerKnowTheKey && !isSecretDoorOpen)
         {
             keyHint.enabled = true;
             keyHint.gameObject.SetActive(true);
@@ -37,9 +44,14 @@ public class SecretDoorController : MonoBehaviour
     void OpenTheSecretDoor()
     {
         secretDoor.Play("CupboardOpen");
+        if (!hasPlayedTheSound)
+        {
+            secretOpeningSound.PlayOneShot(secretOpeningSoundCilp);
+            hasPlayedTheSound = true;
+        }
         isSecretDoorOpen = true;
         keyHint.enabled = false;
         keyHint.gameObject.SetActive(false);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 }
