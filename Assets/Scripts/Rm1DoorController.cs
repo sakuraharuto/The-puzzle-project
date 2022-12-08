@@ -8,17 +8,22 @@ public class Rm1DoorController : MonoBehaviour
     [SerializeField] PressurePadController pressurePad2;
     [SerializeField] PressurePadController pressurePad3;
     [SerializeField] Animator door;
+    AudioSource doorOpenSound;
 
-
+    void Start()
+    {
+        doorOpenSound = GetComponent<AudioSource>();
+    }
     // Update is called once per frame
     void Update()
-    {
+    {   
+        //CheatCode();
         OpenTheDoor();
     }
 
     bool GetPressurePadStatus(PressurePadController pressurePad)
-    {   
-        return pressurePad.GetPressurePadStatus();  
+    {
+        return pressurePad.GetPressurePadStatus();
     }
 
     void OpenTheDoor()
@@ -31,6 +36,18 @@ public class Rm1DoorController : MonoBehaviour
         {
             Debug.Log("The Door is opened!");
             door.Play("DoorOpenAnim");
+            doorOpenSound.Play();
+        }
+    }
+
+    // For debug use
+    void CheatCode()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("The Door is opened! (by cheat code)");
+            door.Play("DoorOpenAnim");
+            doorOpenSound.Play();
         }
     }
 }
